@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Thumbnail</title>
+	<!--
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	-->
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.min.css">
+	<script src="js/jQuery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+
+	<script>
+	$(function (){
+
+		var imageIndex;
+		var timerId;
+		$( "#slideShow" ).prop( "disabled", false );
+
+		$( "#slideShow" ).click( function (){
+			imageIndex = 0;
+			changeImage();
+			$( "#slideShow" ).prop( "disabled", true );
+			timerId = setInterval( changeImage, 2000 );
+		}); // click
+
+		var changeImage = function (){
+			var selectedImage = $( ".thumb:eq(" + imageIndex + ")" ).attr( "src" );
+
+			$( ".thumb" ).css( "border", "" );
+			$( ".thumb:eq(" + imageIndex + ")" ).css( "border", "thick solid #cccccc" );			
+
+			// main classの画像をFadeOutする
+			$(".main").fadeOut( "normal" , function (){
+			    // main classのsrc属性を書き換える FadeOut完了時のコールバック関数
+				$( ".main" ).attr( "src", selectedImage );				
+				$( ".main" ).fadeIn();
+			});
+
+			imageIndex++;
+
+			if( imageIndex == $( ".thumb" ).length ) {
+				clearInterval( timerId );
+				$( "#slideShow" ).prop( "disabled", false );
+			}
+		};
+
+
+	});
+	</script>
+</head>
+<body>
+	<input type="button" value="スライドショー開始" id="slideShow">
+	<hr>
+	<img src="IMG_1995.jpg" width="90" height="120" class="thumb">
+	<img src="IMG_1996.jpg" width="90" height="120" class="thumb">
+	<img src="IMG_1997.jpg" width="90" height="120" class="thumb">
+	<img src="IMG_1998.jpg" width="90" height="120" class="thumb">
+	<hr>
+	<img src="IMG_1996.jpg" width="450" height="600" class="main">
+
+</body>
+</html>

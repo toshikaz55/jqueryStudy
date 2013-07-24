@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Thumbnail</title>
+	<!--
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	-->
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.min.css">
+	<script src="js/jQuery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+
+	<script>
+	$(function (){
+
+		$( ".thumb" ).click( function (){
+			// クリックされた画像のsrc属性の値を取得する
+			var selectedImage = $( this ).attr( "src" );
+
+			$( ".thumb" ).css( "border", "" );
+			$( this ).css( "border", "thick solid #cccccc" );	
+
+			// main classの画像をFadeOutする
+			$(".main").fadeOut( "normal" , function (){
+			    // main classのsrc属性を書き換える FadeOut完了時のコールバック関数
+				$( ".main" ).attr( "src", selectedImage );				
+				$( ".main" ).fadeIn();
+			});
+
+		});
+
+	});
+	</script>
+</head>
+<body>
+	<img src="IMG_1995.jpg" width="90" height="120" class="thumb">
+	<img src="IMG_1996.jpg" width="90" height="120" class="thumb">
+	<img src="IMG_1997.jpg" width="90" height="120" class="thumb">
+	<img src="IMG_1998.jpg" width="90" height="120" class="thumb">
+	<hr>
+	<img src="IMG_1995.jpg" width="450" height="600" class="main">
+
+</body>
+</html>

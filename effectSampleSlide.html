@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+	<!--
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	-->
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.min.css">
+	<script src="js/jQuery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+
+	<script>
+	$(function (){
+	/*
+		$("#button_slideUp").click(function(){
+			$("img").slideUp();
+		});
+
+		$("#button_slideDown").click(function(){
+			$("img").slideDown();
+		});
+	*/
+		$("#button_slideToggle").click(function(){
+			$("img").slideToggle();
+		});
+
+	});
+	</script>
+</head>
+<body>
+	<!--
+	<input type="button" value="スライドアップ" id="button_slideUp">
+	<input type="button" value="スライドダウン" id="button_slideDown">
+	-->
+	<input type="button" value="スライドトグル" id="button_slideToggle">
+	<hr>
+	<img src="asigara.png" width="400" height="880">
+</body>
+</html>

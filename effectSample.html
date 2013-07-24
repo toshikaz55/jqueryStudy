@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+	<!--
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	-->
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.min.css">
+	<script src="js/jQuery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+
+	<script>
+	$(function (){
+		$("#button_hide").click(function(){
+			$("img").hide("fast");
+		});
+
+		$("#button_show").click(function(){
+			$("img").show( "fold", 2000);
+		});
+		
+	});
+	</script>
+</head>
+<body>
+	<input type="button" value="非表示" id="button_hide">
+	<input type="button" value="表示" id="button_show">
+	<hr>
+	<img src="asigara.png" width="400" height="880">
+</body>
+</html>
